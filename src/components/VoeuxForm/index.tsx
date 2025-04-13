@@ -15,10 +15,10 @@ const VoeuxForm = () => {
   const [generatedMessage, setGeneratedMessage] = useState("");
 
   const voeuxTypes = {
-    mariage: "Mariage",
-    anniversaire: "Anniversaire",
-    deces: "Décès",
-    nouvel_an: "Nouvel An",
+    mariage: "Wedding",
+    anniversaire: "Birthday",
+    deces: "Death",
+    nouvel_an: "New Year",
   };
 
   const generateMessage = () => {
@@ -26,23 +26,24 @@ const VoeuxForm = () => {
 
     switch (voeuxType) {
       case "mariage":
-        message = `Best wishes on your wedding ${name ? `, ${name}` : ""}!
-May this new chapter of your life be filled with endless love, joy, and laughter.
-Wishing you a marriage full of understanding, shared dreams, and beautiful memories.
-Congratulations and all the happiness in the world`;
+        message = `Best wishes on your wedding${
+          name ? `, ${name}` : ""
+        }!\nMay this new chapter of your life be filled with endless love, joy, and laughter.\nWishing you a marriage full of understanding, shared dreams, and beautiful memories.\nCongratulations and all the happiness in the world`;
         break;
       case "anniversaire":
-        message = `Joyeux ${age}ème anniversaire${
+        message = `Happy ${age}th Birthday${
           name ? `, ${name}` : ""
-        }! Que cette nouvelle année de vie soit remplie de bonheur et de réussite.`;
+        }!\nWishing you happiness, health, and success.\nMay this year bring amazing opportunities.\nKeep shining and chasing your dreams.\nEnjoy your special day to the fullest! 🎉`;
+
         break;
       case "deces":
-        message = `Nos plus sincères condoléances pour votre perte. Que ${
-          name ? `${name}` : "votre proche"
-        } repose en paix.`;
+        message = `In loving memory ${
+          name ? `of, ${name}` : ""
+        }, Gone too soon but never forgotten.\nMay their soul rest in eternal peace.\nOur thoughts and prayers are with the family.\nTheir kindness and spirit will live on forever.`;
         break;
+
       case "nouvel_an":
-        message = `Bonne année ${new Date().getFullYear()}! Que cette nouvelle année vous apporte santé, bonheur et prospérité.`;
+        message = `🎉 Happy New Year ${new Date().getFullYear()}!\nWishing you joy, success, and good health.\nMay this year bring new opportunities your way.\nKeep dreaming, keep growing, keep shining.\nCheers to a bright and beautiful year ahead! ✨`;
         break;
       default:
         message = "Meilleurs vœux pour cette occasion spéciale!";
@@ -59,19 +60,19 @@ Congratulations and all the happiness in the world`;
     <div className="min-h-screen p-6 bg-gray-50">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold text-center mb-8">
-          Personnalisez vos vœux
+          Personalize your greetings
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-4">
-              Options de personnalisation
+              Customization options
             </h2>
 
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Type de vœux
+                  Type of request
                 </label>
                 <select
                   value={voeuxType}
@@ -99,7 +100,6 @@ Congratulations and all the happiness in the world`;
                     value={age}
                     onChange={(e) => {
                       setAge(parseInt(e.target.value));
-                      clearMessage(); // Clear the message
                     }}
                     className="w-full p-2 border border-gray-300 rounded-md"
                     min="1"
@@ -110,46 +110,42 @@ Congratulations and all the happiness in the world`;
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Nom (optionnel)
+                  Fullname (optional)
                 </label>
                 <input
                   type="text"
                   value={name}
                   onChange={(e) => {
                     setName(e.target.value);
-                    clearMessage(); // Clear the message
                   }}
                   className="w-full p-2 border border-gray-300 rounded-md"
-                  placeholder="Entrez un nom"
+                  placeholder="Enter a name"
                 />
               </div>
               <ColorPicker
-                label="Couleur du texte"
+                label="Text color"
                 color={textColor}
                 onChange={(color: any) => {
                   setTextColor(color);
-                  clearMessage(); // Clear the message
                 }}
               />
-
               <FontSelector
                 selectedFont={fontFamily}
                 onSelect={(font: any) => {
                   setFontFamily(font);
                 }}
               />
-
               <button
                 onClick={generateMessage}
                 className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
               >
-                Générer le message
+                Generate message
               </button>
             </div>
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-4">Aperçu</h2>
+            <h2 className="text-xl font-semibold mb-4">Overview</h2>
             <MessagePreview
               message={generatedMessage}
               backgroundColor={backgroundColor}

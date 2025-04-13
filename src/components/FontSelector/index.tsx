@@ -11,7 +11,7 @@ const FontSelector = ({ selectedFont, onSelect }: any) => {
   return (
     <div>
       <label className="block text-sm font-medium text-gray-700 mb-1">
-        Police de caractères
+        Character fonts
       </label>
       <select
         value={selectedFont}

@@ -1,11 +1,5 @@
 import Link from "next/link";
-import {
-  FaFacebook,
-  FaTwitter,
-  FaWhatsapp,
-  FaEnvelope,
-  FaInstagram,
-} from "react-icons/fa";
+import { FaTwitter, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 const SocialShare = ({
   message,
@@ -22,7 +16,7 @@ const SocialShare = ({
 
   return (
     <div className="py-4">
-      <h3 className="text-base font-medium mb-2 text-center">Partager sur</h3>
+      <h3 className="text-base font-medium mb-2 text-center">Share it on</h3>
       <div className="flex space-x-4 items-center justify-center">
         <Link
           href={`https://wa.me/?text=${encodedMessage}%20${encodedUrl}`}
