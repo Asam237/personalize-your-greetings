@@ -10,7 +10,6 @@ const SocialShare = ({
 }) => {
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
 
-  // Encode the message and URL for sharing
   const encodedMessage = encodeURIComponent(`${voeuxType}: ${message}`);
   const encodedUrl = encodeURIComponent(shareUrl);
 
