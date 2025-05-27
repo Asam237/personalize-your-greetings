@@ -8,48 +8,19 @@ module.exports = {
   ],
   theme: {
     extend: {
-      container: {
-        center: true,
-        padding: {
-          DEFAULT: "1rem",
-        },
-        fontFamily: {
-          sans: ["Arial", "sans-serif"],
-          serif: ["Times New Roman", "serif"],
-          mono: ["Courier New", "monospace"],
-        },
+      fontFamily: {
+        sans: ["Inter", "ui-sans-serif", "system-ui"],
+        serif: ["ui-serif", "Georgia"],
+        mono: ["ui-monospace", "SFMono-Regular"],
       },
-      colors: {
-        primary: {
-          DEFAULT: "#006DB2",
-        },
-        primaryTitle: {
-          DEFAULT: "#0E3758",
-        },
-        primaryDescription: {
-          DEFAULT: "#1E75BA",
-        },
-        gray: {
-          DEFAULT: "#F2F8FD",
-        },
-        secondary: {
-          DEFAULT: "#FFC641",
-        },
-        orange: {
-          DEFAULT: "#faaf42",
-        },
+      animation: {
+        "fade-in": "fadeIn 0.5s ease-out",
+        "scale-in": "scaleIn 0.3s ease-out",
+      },
+      backdropBlur: {
+        xs: "2px",
       },
     },
   },
-  plugins: [
-    function ({ addComponents }) {
-      addComponents({
-        ".container": {
-          marginLeft: "auto",
-          maxWidth: "80%",
-          marginRight: "auto",
-        },
-      });
-    },
-  ],
+  plugins: [],
 };
